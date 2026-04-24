@@ -1,0 +1,29 @@
+name: Task C - Automated Security Scan (Semgrep)
+
+on: [push]
+
+jobs:
+  semgrep-scan:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      security-events: write
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Install Semgrep
+        run: pip install semgrep
+
+      - name: Run Semgrep Scan
+        run: |
+          semgrep --config=auto --json -o scan-results.json webapp/
+        continue-on-error: true
+
+      - name: Upload Scan Results
+        uses: actions/upload-artifact@v4
+        with:
+          name: semgrep-report
+          path: scan-results.json
