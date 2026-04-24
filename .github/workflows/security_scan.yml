@@ -19,11 +19,12 @@ jobs:
 
       - name: Run Semgrep Scan
         run: |
-          semgrep --config=auto --json -o scan-results.json webapp/
+          # Changed --json to --text and the output file to .txt
+          semgrep --config=auto --text -o scan-results.txt webapp/
         continue-on-error: true
 
       - name: Upload Scan Results
         uses: actions/upload-artifact@v4
         with:
           name: semgrep-report
-          path: scan-results.json
+          path: scan-results.txt
