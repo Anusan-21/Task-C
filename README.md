@@ -14,7 +14,7 @@ The pipeline is defined in `.github/workflows/security_scan.yml` and performs th
 - Generates a structured JSON report of detected vulnerabilities
 - Uploads the scan results as a build artifact, which can be downloaded and reviewed for analysis and reporting purposes
 
-This implementation demonstrates a DevSecOps approach by integrating automated security testing directly into the development lifecycle, ensuring that vulnerabilities are identified early in the codebase before.
+This implementation demonstrates a DevSecOps approach by integrating automated security testing directly into the development lifecycle, ensuring that vulnerabilities are identified early in the codebase before
 
 ---
 
